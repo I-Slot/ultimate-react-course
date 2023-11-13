@@ -143,6 +143,7 @@ function getBook(id) {
   return data.find((d) => d.id === id);
 }
 
+/*
 //Destructuring
 
 const book = getBook(2);
@@ -162,5 +163,79 @@ console.log(title, author, pages, publicationDate, genres, hasMovieAdaptation);
 // const primaryGenres3 = genres[3];
 // console.log(primaryGenres,primaryGenres1,primaryGenres2,primaryGenres3)
 
-const [primaryGenres, secondaryGenres] = genres;
-console.log(primaryGenres, secondaryGenres);
+const [primaryGenres, secondaryGenres, ...otherGenres] = genres;
+console.log(primaryGenres, secondaryGenres, otherGenres);
+
+const newGenres = ["epic fantasy", ...genres];
+newGenres;
+
+const updatedBook = {
+  ...book,
+  moviePublicationDate: "2001-12-19",
+  // pages: 1210,
+};
+updatedBook;
+
+// Template Literals
+
+const summary = `${title}, a ${pages}--page long book, was author by ${author} in the year ${
+  publicationDate.split("-")[0]
+}. The book has ${hasMovieAdaptation ? "" : "not"} been adapted as a movie`;
+summary;
+
+// Ternaries Instead of IF/ELSE Statements
+
+const pageTernary = pages > 1000 ? "Over is thousand" : "less than 1000";
+pageTernary;
+
+console.log(`The book has ${pageTernary}`);
+
+// Arrow Functions
+
+// function getYear(str) {
+//   return str.split("-")[0];
+// }
+const getYear = (str) => str.split("-")[0];
+
+console.log(getYear(publicationDate));
+
+// Short-Circuiting And Logical Operators: &&/ ||, ??...
+
+console.log(true && "something else");
+console.log(false && "something else");
+
+console.log(hasMovieAdaptation && "This book has a movie");
+
+// Falsy values : null, 0 , undefined, "",
+console.log("Ismail", "Another person");
+console.log("" && "The the second person");
+
+console.log(true || "Some string");
+console.log(false || "Some string");
+
+console.log(book.translations.spanish);
+
+const spanishTranslation = book.translations.spanish || "NOT TRANSLATED";
+spanishTranslation;
+
+console.log(book.reviews.librarything.reviewsCount);
+
+const countWrong = book.reviews.librarything.reviewsCount || "No data";
+countWrong;
+
+const count = book.reviews.librarything.reviewsCount ?? "no data";
+count;
+
+// Optional Chaining Operator
+
+function getTotalReviewCount(book) {
+  const goodreads = book.reviews.goodreads.reviewsCount;
+  const librarything = book.reviews.librarything?.reviewsCount ?? 0;
+  librarything;
+  return goodreads + librarything;
+}
+
+console.log(getTotalReviewCount(book));
+*/
+
+// Functional Array Methods Map, Filter, Reduce
