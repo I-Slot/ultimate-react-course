@@ -239,3 +239,41 @@ console.log(getTotalReviewCount(book));
 */
 
 // Functional Array Methods Map, Filter, Reduce
+
+// Map Method
+
+function getTotalReviewCount(book) {
+  const goodreads = book.reviews.goodreads.reviewsCount;
+  const librarything = book.reviews.librarything?.reviewsCount ?? 0;
+  librarything;
+  return goodreads + librarything;
+}
+
+const books = getBooks();
+
+const x = [1, 2, 3, 4, 5, 6, 7].map((sqr) => sqr * sqr);
+const z = x;
+x;
+
+const titles = books.map((book) => book.title);
+titles;
+
+const essentialData = books.map((book) => ({
+  title: book.title,
+  author: book.author,
+  reviewsCount: getTotalReviewCount(book),
+}));
+essentialData;
+
+const longBooks = books.filter((book) => book.pages > 500);
+longBooks;
+
+const adventureBooks = books
+  .filter((books) => books.genres.includes("adventure"))
+  .map((book) => book.title);
+
+adventureBooks;
+
+// Array Reduce Method : The most versatile array method
+const pagesAllBooks = books.reduce((sum, book) => sum + book.pages, 0);
+pagesAllBooks;
