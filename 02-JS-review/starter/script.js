@@ -242,6 +242,7 @@ console.log(getTotalReviewCount(book));
 
 // Map Method
 
+/*
 function getTotalReviewCount(book) {
   const goodreads = book.reviews.goodreads.reviewsCount;
   const librarything = book.reviews.librarything?.reviewsCount ?? 0;
@@ -277,3 +278,55 @@ adventureBooks;
 // Array Reduce Method : The most versatile array method
 const pagesAllBooks = books.reduce((sum, book) => sum + book.pages, 0);
 pagesAllBooks;
+
+// Array sort Method
+const y = [3, 7, 1, 9, 6];
+const sorted = y.slice().sort((a, b) => b - a);
+sorted;
+y;
+
+const sortedByPages = books.slice().sort((a, b) => a.spages - a.pages);
+sortedByPages;
+
+// Working With Immutable Arrays
+// 1) Add book object to array
+
+const newBook = {
+  id: 6,
+  title: "Harry Potter and the Chamber of Secrets",
+  author: "J. K. Rowling",
+};
+
+const booksAfterAdd = [...books, newBook];
+booksAfterAdd;
+
+// 2) Delete book object from array
+
+const booksAfterDelete = booksAfterAdd.filter((book) => book.id !== 3);
+booksAfterDelete;
+
+// 3) Update book object in the array
+
+const booksAfterUpdate = booksAfterDelete.map((book) =>
+  book.id === 1 ? { ...book, pages: 1 } : book
+);
+booksAfterUpdate;
+*/
+// Asynchronous JS
+
+// fetch("https://jsonplaceholder.typicode.com/todos/1")
+//   .then((res) => res.json())
+//   .then((data) => console.log(data));
+// console.log("ismail");
+
+async function getTodos() {
+  const res = await fetch("https://jsonplaceholder.typicode.com/todos/1");
+  const date = await res.json();
+  console.log(data);
+
+  return data;
+}
+
+const todos = getTodos();
+console.log(todos);
+console.log("Ismail");
